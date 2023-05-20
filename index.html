@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <script> 
+
+
+let points = 0; 
+
+
+
+function game(){ 
+
+ let computerSelection;
+ 
+
+    function getComputerChoice () {
+      let random = Math.floor(Math.random()*10);
+
+      if (random <3) {computerSelection = "Rock"}
+      else if (random <6) {computerSelection = "Paper"}
+      else {computerSelection = "Scissors"};
+    
+      //console.log(computerSelection);
+      return computerSelection; 
+    }; 
+    getComputerChoice ();
+
+
+
+  let playerSelection = prompt("Best of 5 wins. Choose: Rock, Paper, or Scissors").toUpperCase()
+  
+  
+ 
+    if ((playerSelection == "ROCK")||(playerSelection == "PAPER")||(playerSelection == "SCISSORS")) 
+    {}
+    else {alert("Not an option. You lose this round");
+    return};
+
+
+    let result;
+
+    function playRound (playerSelection, computerSelection) {
+    if ((playerSelection == "ROCK" & computerSelection == "Rock") 
+    || (playerSelection == "PAPER" & computerSelection == "Paper")
+    || (playerSelection == "SCISSORS" & computerSelection == "Scissors"))
+    {result = "Tie."} 
+
+    else if ((playerSelection == "ROCK" & computerSelection == "Scissors") 
+    || (playerSelection == "PAPER" & computerSelection == "Rock")
+    || (playerSelection == "SCISSORS" & computerSelection == "Paper"))
+    {result = "You win!"}
+
+    else {result = "You lose. Womp womp"};
+
+    return result;
+
+    };
+
+
+    alert(playRound(playerSelection, computerSelection));
+
+    
+    function keepScore() {
+      if (playRound(playerSelection, computerSelection)=="You win!") {points=++points}
+      //console.log(points);
+    }; 
+
+    keepScore();
+    
+    }; 
+
+
+
+
+
+    game(); 
+    game(); 
+    game(); 
+    game(); 
+    game(); 
+    
+    if (points >= 3) {alert("You won the best of 5")}
+    else {alert("You lost the best of 5")};
+    
+
+    
+
+
+
+
+  </script>
+</body>
+</html>
